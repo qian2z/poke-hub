@@ -1,6 +1,7 @@
 import useTypes from "../hooks/useTypes";
 import {
   Box,
+  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -12,6 +13,7 @@ const TypesList = () => {
   const { types, error, isLoading } = useTypes();
 
   if (error) return <Typography>Request Failed</Typography>;
+  if (isLoading) return <CircularProgress />;
 
   return (
     <Box sx={{ mx: 3 }}>
