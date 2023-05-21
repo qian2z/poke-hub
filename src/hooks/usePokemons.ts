@@ -28,10 +28,13 @@ function getEndpoints() {
 const usePokemons = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const endpoints = getEndpoints();
 
   useEffect(() => {
     const controller = new AbortController();
+
+    setLoading(true);
     Promise.all(
       endpoints.map((endpoint) => axios.get<FetchPokemonResponse>(endpoint))
     )
@@ -49,15 +52,17 @@ const usePokemons = () => {
               type: result.data.types[0].type.name.toUpperCase(),
             },
           ]);
+          setLoading(false);
         });
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
-        setError(err);
+        setError(err.message);
+        setLoading(false);
       });
     return () => controller.abort();
   }, []);
-  return { pokemons, error };
+  return { pokemons, error, isLoading };
 };
 
 export default usePokemons;
