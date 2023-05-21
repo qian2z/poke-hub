@@ -1,8 +1,9 @@
-import { Box, Card, CardContent, CardMedia, Skeleton } from "@mui/material";
+import { CardContent, CardMedia, Skeleton } from "@mui/material";
+import PokemonCardContainer from "./PokemonCardContainer";
 
-const PokemonCardSkeleton = () => (
-  <Box sx={{ m: 1 }}>
-    <Card variant="outlined" sx={{ borderRadius: "16px" }}>
+const PokemonCardSkeleton = () => {
+  return (
+    <PokemonCardContainer>
       <CardMedia>
         <Skeleton variant="rectangular" sx={{ height: "300px" }} />
       </CardMedia>
@@ -10,8 +11,8 @@ const PokemonCardSkeleton = () => (
         <Skeleton variant="text" sx={{ fontSize: "2rem" }} />
         <Skeleton variant="text" sx={{ fontSize: "2rem" }} />
       </CardContent>
-    </Card>
-  </Box>
-);
+    </PokemonCardContainer>
+  );
+};
 
 export default PokemonCardSkeleton;
