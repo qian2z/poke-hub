@@ -1,9 +1,10 @@
 import { Grid, Typography } from "@mui/material";
 import NavBar from "./components/NavBar";
+import PokemonGrid from "./components/PokemonGrid";
 
 function App() {
   return (
-    <Grid container>
+    <Grid container sx={{ rowGap: 3 }}>
       <Grid item mobile={12}>
         <Typography>
           <NavBar />
@@ -17,7 +18,7 @@ function App() {
         <Typography>Aside</Typography>
       </Grid>
       <Grid item tablet={9} mobile={12}>
-        <Typography>Main</Typography>
+        <PokemonGrid />
       </Grid>
     </Grid>
   );

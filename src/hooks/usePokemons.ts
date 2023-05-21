@@ -1,13 +1,15 @@
 import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
-interface Pokemon {
+export interface Pokemon {
+  id: number;
   name: string;
   url: string;
   imageUrl: string;
 }
 
 interface FetchPokemonResponse {
+  id: number;
   name: string;
   url: string;
   sprites: { front_default: string };
@@ -36,7 +38,10 @@ const usePokemons = () => {
           setPokemons((prevPoke) => [
             ...prevPoke,
             {
-              name: result.data.name,
+              id: result.data.id,
+              name:
+                result.data.name.charAt(0).toUpperCase() +
+                result.data.name.slice(1),
               url: result.data.url,
               imageUrl: result.data.sprites.front_default,
             },
