@@ -9,7 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 
-const TypesList = () => {
+interface Props {
+  onSelectType: (type: string) => void;
+}
+
+const TypesList = ({ onSelectType }: Props) => {
   const { types, error, isLoading } = useTypes();
 
   if (error) return <Typography>Request Failed</Typography>;
@@ -20,7 +24,7 @@ const TypesList = () => {
       <List>
         {types.map((type) => (
           <ListItem disablePadding key={type.name}>
-            <ListItemButton>
+            <ListItemButton onClick={() => onSelectType(type.name)}>
               <ListItemText
                 sx={{ fontSize: "3rem" }}
                 primary={

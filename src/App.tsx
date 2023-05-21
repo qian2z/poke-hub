@@ -2,8 +2,10 @@ import { Grid, Typography } from "@mui/material";
 import NavBar from "./components/NavBar";
 import PokemonGrid from "./components/PokemonGrid";
 import TypesList from "./components/TypesList";
+import { useState } from "react";
 
 function App() {
+  const [selectedType, setSelectedType] = useState("");
   return (
     <Grid container sx={{ rowGap: 3 }}>
       <Grid item mobile={12}>
@@ -17,11 +19,11 @@ function App() {
         sx={{ display: { mobile: "none", tablet: "block", laptop: "block" } }}
       >
         <Typography>
-          <TypesList />
+          <TypesList onSelectType={(type) => setSelectedType(type)} />
         </Typography>
       </Grid>
       <Grid item tablet={10} mobile={12}>
-        <PokemonGrid />
+        <PokemonGrid selectedType={selectedType} />
       </Grid>
     </Grid>
   );

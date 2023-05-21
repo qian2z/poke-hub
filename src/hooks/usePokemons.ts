@@ -9,7 +9,7 @@ export interface Pokemon {
   type: string;
 }
 
-interface FetchPokemonResponse {
+export interface FetchPokemonResponse {
   id: number;
   name: string;
   url: string;
@@ -19,7 +19,7 @@ interface FetchPokemonResponse {
 
 function getEndpoints() {
   const endpoints = [];
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 40; i++) {
     endpoints.push("https://pokeapi.co/api/v2/pokemon/" + i + "/");
   }
   return endpoints;
