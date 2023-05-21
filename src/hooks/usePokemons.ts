@@ -60,6 +60,7 @@ const usePokemons = () => {
         setError(err.message);
         setLoading(false);
       });
+
     return () => controller.abort();
   }, []);
   return { pokemons, error, isLoading };

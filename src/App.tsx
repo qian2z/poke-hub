@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import NavBar from "./components/NavBar";
 import PokemonGrid from "./components/PokemonGrid";
+import TypesList from "./components/TypesList";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
         tablet={2}
         sx={{ display: { mobile: "none", tablet: "block", laptop: "block" } }}
       >
-        <Typography>Aside</Typography>
+        <Typography>
+          <TypesList />
+        </Typography>
       </Grid>
       <Grid item tablet={10} mobile={12}>
         <PokemonGrid />
