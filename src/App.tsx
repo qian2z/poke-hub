@@ -12,12 +12,12 @@ function App() {
       </Grid>
       <Grid
         item
-        tablet={3}
+        tablet={2}
         sx={{ display: { mobile: "none", tablet: "block", laptop: "block" } }}
       >
         <Typography>Aside</Typography>
       </Grid>
-      <Grid item tablet={9} mobile={12}>
+      <Grid item tablet={10} mobile={12}>
         <PokemonGrid />
       </Grid>
     </Grid>

@@ -6,6 +6,7 @@ export interface Pokemon {
   name: string;
   url: string;
   imageUrl: string;
+  type: string;
 }
 
 interface FetchPokemonResponse {
@@ -13,11 +14,12 @@ interface FetchPokemonResponse {
   name: string;
   url: string;
   sprites: { front_default: string };
+  types: { type: { name: string } }[];
 }
 
 function getEndpoints() {
   const endpoints = [];
-  for (let i = 1; i <= 30; i++) {
+  for (let i = 1; i <= 100; i++) {
     endpoints.push("https://pokeapi.co/api/v2/pokemon/" + i + "/");
   }
   return endpoints;
@@ -34,7 +36,7 @@ const usePokemons = () => {
       endpoints.map((endpoint) => axios.get<FetchPokemonResponse>(endpoint))
     )
       .then((response) => {
-        response.map((result) =>
+        response.map((result) => {
           setPokemons((prevPoke) => [
             ...prevPoke,
             {
@@ -44,9 +46,10 @@ const usePokemons = () => {
                 result.data.name.slice(1),
               url: result.data.url,
               imageUrl: result.data.sprites.front_default,
+              type: result.data.types[0].type.name.toUpperCase(),
             },
-          ])
-        );
+          ]);
+        });
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;

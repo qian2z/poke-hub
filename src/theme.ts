@@ -23,6 +23,9 @@ const theme = createTheme({
     secondary: {
       main: "#3d5afe",
     },
+    info: {
+      main: "#cfd8dc",
+    },
   },
   typography: {
     fontFamily: "Roboto",

@@ -1,5 +1,6 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { Pokemon } from "../hooks/usePokemons";
+import TypesChip from "./TypesChip";
 
 interface Props {
   pokemon: Pokemon;
@@ -16,7 +17,10 @@ const PokemonCard = ({ pokemon }: Props) => {
           sx={{ objectFit: "cover", height: 350 }}
         />
         <CardContent>
-          <Typography variant="h4">{pokemon.name}</Typography>
+          <Typography variant="h4" gutterBottom>
+            {pokemon.name}
+          </Typography>
+          <TypesChip type={pokemon.type} />
         </CardContent>
       </Card>
     </Box>
