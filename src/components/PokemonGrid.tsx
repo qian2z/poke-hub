@@ -12,6 +12,7 @@ const PokemonGrid = () => {
   return (
     <Box
       sx={{
+        mr: 4,
         display: "grid",
         gridTemplateColumns: {
           mobile: "repeat(1, 1fr)",

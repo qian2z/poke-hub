@@ -1,5 +1,12 @@
 import useTypes from "../hooks/useTypes";
-import { Typography } from "@mui/material";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 
 const TypesList = () => {
   const { types, error, isLoading } = useTypes();
@@ -7,11 +14,24 @@ const TypesList = () => {
   if (error) return <Typography>Request Failed</Typography>;
 
   return (
-    <ul>
-      {types.map((type) => (
-        <li key={type.name}>{type.name}</li>
-      ))}
-    </ul>
+    <Box sx={{ mx: 3 }}>
+      <List>
+        {types.map((type) => (
+          <ListItem disablePadding key={type.name}>
+            <ListItemButton>
+              <ListItemText
+                sx={{ fontSize: "3rem" }}
+                primary={
+                  <Typography variant="body1" style={{ fontSize: "25px" }}>
+                    {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
+                  </Typography>
+                }
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 };
 
