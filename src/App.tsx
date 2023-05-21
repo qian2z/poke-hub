@@ -19,7 +19,10 @@ function App() {
         sx={{ display: { mobile: "none", tablet: "block", laptop: "block" } }}
       >
         <Typography>
-          <TypesList onSelectType={(type) => setSelectedType(type)} />
+          <TypesList
+            onSelectType={(type) => setSelectedType(type)}
+            selectedType={selectedType}
+          />
         </Typography>
       </Grid>
       <Grid item tablet={10} mobile={12}>
