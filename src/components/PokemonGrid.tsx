@@ -32,21 +32,25 @@ const PokemonGrid = ({ selectedType, searchedText }: Props) => {
         },
       }}
     >
-      {isLoading ||
-        (tIsLoading &&
-          skeletons.map((skeleton) => <PokemonCardSkeleton key={skeleton} />))}
-      {selectedType === "" &&
-        searchedText === "" &&
-        pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon}></PokemonCard>
-        ))}
-      {selectedType !== "" &&
-        typePokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon}></PokemonCard>
-        ))}
-      {searchedText !== "" && (
-        <PokemonCard key={pokemon?.id} pokemon={pokemon || null}></PokemonCard>
-      )}
+      <>
+        {isLoading ||
+          (tIsLoading &&
+            skeletons.map((skeleton) => (
+              <PokemonCardSkeleton key={skeleton} />
+            )))}
+        {selectedType === "" &&
+          searchedText === "" &&
+          pokemons.map((pokemon) => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          ))}
+        {selectedType !== "" &&
+          typePokemons.map((pokemon) => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          ))}
+        {searchedText !== "" && (
+          <PokemonCard key={pokemon?.id} pokemon={pokemon || null} />
+        )}
+      </>
     </Box>
   );
 };

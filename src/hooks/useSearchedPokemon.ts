@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FetchPokemonResponse, Pokemon } from "./usePokemons";
-import axios, { CanceledError } from "axios";
+import axios from "axios";
 
 const useSearchedPokemon = (searchedText: string) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
@@ -23,8 +23,7 @@ const useSearchedPokemon = (searchedText: string) => {
         })
       )
       .catch((err) => {
-        if (err instanceof CanceledError) return;
-        console.log(err.message);
+        return;
       });
     return () => {
       controller.abort();

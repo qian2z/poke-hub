@@ -24,6 +24,7 @@ const NavBar = ({ onSearch, searchedText, onClearType }: Props) => {
               <AdbIcon sx={{ mr: 1, ml: 1 }} />
               <Typography
                 variant="h5"
+                component="h5"
                 noWrap
                 sx={{
                   fontFamily: "monospace",

@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import NavBar from "./components/NavBar";
 import PokemonGrid from "./components/PokemonGrid";
 import TypesList from "./components/TypesList";
@@ -12,13 +12,11 @@ function App() {
   return (
     <Grid container sx={{ rowGap: 3 }}>
       <Grid item mobile={12}>
-        <Typography>
-          <NavBar
-            onSearch={(searchedText) => setSearchText(searchedText)}
-            searchedText={searchedText}
-            onClearType={() => setSelectedType("")}
-          />
-        </Typography>
+        <NavBar
+          onSearch={(searchedText) => setSearchText(searchedText)}
+          searchedText={searchedText}
+          onClearType={() => setSelectedType("")}
+        />
       </Grid>
       <Grid
         item
@@ -26,12 +24,10 @@ function App() {
         laptop={2}
         sx={{ display: { mobile: "none", tablet: "block", laptop: "block" } }}
       >
-        <Typography>
-          <TypesList
-            onSelectType={(type) => setSelectedType(type)}
-            selectedType={selectedType}
-          />
-        </Typography>
+        <TypesList
+          onSelectType={(type) => setSelectedType(type)}
+          selectedType={selectedType}
+        />
       </Grid>
       <Grid item laptop={10} tablet={9} mobile={12}>
         <PokemonHeading
