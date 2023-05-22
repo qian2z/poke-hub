@@ -16,9 +16,9 @@ const Search = ({ children }: Props) => {
         "&:hover": {
           backgroundColor: alpha("#fafafa", 0.25),
         },
-        ml: { mobile: 1, tablet: 0 },
         mr: 1.5,
-        width: { mobile: "auto", tablet: 0.7 },
+        width: { mobile: "auto" },
+        borderRadius: 2,
       }}
     >
       {children}

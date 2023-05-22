@@ -9,9 +9,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("mobile")]: {
-      width: "12ch",
+      width: "10ch",
+    },
+    [theme.breakpoints.up("tablet")]: {
+      width: "30ch",
       "&:focus": {
-        width: "20ch",
+        width: "35ch",
+      },
+    },
+    [theme.breakpoints.up("laptop")]: {
+      width: "60ch",
+      "&:focus": {
+        width: "65ch",
       },
     },
   },

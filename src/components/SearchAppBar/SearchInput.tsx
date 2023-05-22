@@ -31,7 +31,7 @@ const SearchInput = ({ onSearch }: Props) => {
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
-          placeholder="Search..."
+          placeholder="Name or ID"
           inputProps={{ "aria-label": "search" }}
           inputRef={ref}
           value={inputValue}
