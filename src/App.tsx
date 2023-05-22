@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import PokemonGrid from "./components/PokemonGrid";
 import TypesList from "./components/TypesList";
 import { useState } from "react";
+import PokemonHeading from "./components/PokemonHeading";
 
 function App() {
   const [selectedType, setSelectedType] = useState("");
@@ -32,6 +33,14 @@ function App() {
         </Typography>
       </Grid>
       <Grid item laptop={10} tablet={9} mobile={12}>
+        <PokemonHeading
+          selectedType={selectedType}
+          searchedText={searchedText}
+          onClear={() => {
+            setSelectedType("");
+            setSearchText("");
+          }}
+        />
         <PokemonGrid selectedType={selectedType} searchedText={searchedText} />
       </Grid>
     </Grid>
