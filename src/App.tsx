@@ -15,7 +15,8 @@ function App() {
       </Grid>
       <Grid
         item
-        tablet={2}
+        tablet={3}
+        laptop={2}
         sx={{ display: { mobile: "none", tablet: "block", laptop: "block" } }}
       >
         <Typography>
@@ -25,7 +26,7 @@ function App() {
           />
         </Typography>
       </Grid>
-      <Grid item tablet={10} mobile={12}>
+      <Grid item laptop={10} tablet={9} mobile={12}>
         <PokemonGrid selectedType={selectedType} />
       </Grid>
     </Grid>

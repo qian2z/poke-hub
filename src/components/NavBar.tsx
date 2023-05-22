@@ -15,7 +15,7 @@ const NavBar = () => {
                 alignItems: "center",
               }}
             >
-              <AdbIcon sx={{ mr: 1 }} />
+              <AdbIcon sx={{ mr: 1, ml: 1 }} />
               <Typography
                 variant="h5"
                 noWrap

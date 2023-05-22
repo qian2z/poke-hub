@@ -14,7 +14,7 @@ const PokemonCard = ({ pokemon }: Props) => {
         component="img"
         src={pokemon.imageUrl}
         title={pokemon.name}
-        sx={{ objectFit: "cover", height: 350 }}
+        sx={{ objectFit: "cover", height: 0.7, width: 1 }}
       />
       <CardContent>
         <Typography variant="h4" gutterBottom>

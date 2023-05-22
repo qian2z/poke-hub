@@ -19,7 +19,7 @@ const PokemonGrid = ({ selectedType }: Props) => {
   return (
     <Box
       sx={{
-        mr: 4,
+        mr: { mobile: 0, tablet: 4 },
         display: "grid",
         gridTemplateColumns: {
           mobile: "repeat(1, 1fr)",
