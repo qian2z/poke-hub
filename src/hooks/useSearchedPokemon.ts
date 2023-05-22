@@ -23,7 +23,7 @@ const useSearchedPokemon = (searchedText: string) => {
         })
       )
       .catch((err) => {
-        return;
+        console.log(err);
       });
     return () => {
       controller.abort();
