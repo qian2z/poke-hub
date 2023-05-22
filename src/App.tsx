@@ -6,11 +6,16 @@ import { useState } from "react";
 
 function App() {
   const [selectedType, setSelectedType] = useState("");
+  const [searchedText, setSearchText] = useState("");
+
   return (
     <Grid container sx={{ rowGap: 3 }}>
       <Grid item mobile={12}>
         <Typography>
-          <NavBar />
+          <NavBar
+            onSearch={(searchedText) => setSearchText(searchedText)}
+            searchedText={searchedText}
+          />
         </Typography>
       </Grid>
       <Grid
@@ -27,7 +32,7 @@ function App() {
         </Typography>
       </Grid>
       <Grid item laptop={10} tablet={9} mobile={12}>
-        <PokemonGrid selectedType={selectedType} />
+        <PokemonGrid selectedType={selectedType} searchedText={searchedText} />
       </Grid>
     </Grid>
   );

@@ -4,7 +4,7 @@ import TypesChip from "./TypesChip";
 import PokemonCardContainer from "./PokemonCardContainer";
 
 interface Props {
-  pokemon: Pokemon;
+  pokemon: Pokemon | null;
 }
 
 const PokemonCard = ({ pokemon }: Props) => {
@@ -12,15 +12,15 @@ const PokemonCard = ({ pokemon }: Props) => {
     <PokemonCardContainer>
       <CardMedia
         component="img"
-        src={pokemon.imageUrl}
-        title={pokemon.name}
+        src={pokemon?.imageUrl}
+        title={pokemon?.name}
         sx={{ objectFit: "cover", height: 0.7, width: 1 }}
       />
       <CardContent>
         <Typography variant="h4" gutterBottom>
-          {pokemon.name}
+          {pokemon?.name}
         </Typography>
-        <TypesChip type={pokemon.type} />
+        <TypesChip type={pokemon?.type || ""} />
       </CardContent>
     </PokemonCardContainer>
   );

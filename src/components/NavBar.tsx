@@ -2,7 +2,12 @@ import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
 import SearchInput from "./SearchAppBar/SearchInput";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (inputValue: string) => void;
+  searchedText: string;
+}
+
+const NavBar = ({ onSearch, searchedText }: Props) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
@@ -30,7 +35,7 @@ const NavBar = () => {
                 POKÉHUB
               </Typography>
             </Box>
-            <SearchInput />
+            <SearchInput onSearch={onSearch} searchedText={searchedText} />
           </Toolbar>
         </Container>
       </AppBar>
