@@ -1,7 +1,6 @@
-import useTypes from "../hooks/useTypes";
+import types from "../data/types";
 import {
   Box,
-  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -15,10 +14,8 @@ interface Props {
 }
 
 const TypesList = ({ onSelectType, selectedType }: Props) => {
-  const { types, error, isLoading } = useTypes();
-
-  if (error) return <Typography>Request Failed</Typography>;
-  if (isLoading) return <CircularProgress />;
+  // if (error) return <Typography>Request Failed</Typography>;
+  // if (isLoading) return <CircularProgress />;
 
   return (
     <Box sx={{ mx: 3 }}>
