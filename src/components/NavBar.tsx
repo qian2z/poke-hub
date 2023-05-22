@@ -5,9 +5,10 @@ import SearchInput from "./SearchAppBar/SearchInput";
 interface Props {
   onSearch: (inputValue: string) => void;
   searchedText: string;
+  onClearType: () => void;
 }
 
-const NavBar = ({ onSearch, searchedText }: Props) => {
+const NavBar = ({ onSearch, searchedText, onClearType }: Props) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
@@ -35,7 +36,11 @@ const NavBar = ({ onSearch, searchedText }: Props) => {
                 POKÉHUB
               </Typography>
             </Box>
-            <SearchInput onSearch={onSearch} searchedText={searchedText} />
+            <SearchInput
+              onSearch={onSearch}
+              searchedText={searchedText}
+              onClearType={onClearType}
+            />
           </Toolbar>
         </Container>
       </AppBar>

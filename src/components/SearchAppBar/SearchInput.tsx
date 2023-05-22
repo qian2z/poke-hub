@@ -7,14 +7,16 @@ import { useRef, useState } from "react";
 interface Props {
   onSearch: (inputValue: string) => void;
   searchedText: string;
+  onClearType: () => void;
 }
 
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = ({ onSearch, onClearType }: Props) => {
   const [inputValue, setInputValue] = useState("");
   const ref = useRef<HTMLInputElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+    onClearType();
   };
 
   return (

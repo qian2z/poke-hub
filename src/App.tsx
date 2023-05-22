@@ -16,6 +16,7 @@ function App() {
           <NavBar
             onSearch={(searchedText) => setSearchText(searchedText)}
             searchedText={searchedText}
+            onClearType={() => setSelectedType("")}
           />
         </Typography>
       </Grid>
